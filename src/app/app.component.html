@@ -1,0 +1,271 @@
+<div class="container">
+  <button mat-raised-button color="primary">Hello World</button>
+  <button mat-raised-button color="warn">Basic</button>
+  <button mat-stroked-button color="warn">Basic</button>
+  <button mat-flat-button color="warn">Basic</button>
+  <button mat-stroked-button color="warn" disabled>basic</button>
+  <button mat-icon-button color="primary">
+    <mat-icon>
+      home
+    </mat-icon>
+  </button>
+  <button mat-fab>
+    <mat-icon>
+      mail
+    </mat-icon>
+  </button>
+  <button mat-mini-fab>
+    <mat-icon>
+      mail
+    </mat-icon>
+  </button>
+  <!-- typography -->
+  <div class="mat-display-4">Display Property</div>
+  <div class="mat-display-3">Display Property</div>
+  <div class="mat-display-2">Display Property</div>
+  <div class="mat-display-1">Display Property</div>
+
+  <div class="mat-headline">Heading h1</div>
+  <div class="mat-title">Heading h2</div>
+  <div class="mat-subheading-1">Heading h3</div>
+  <div class="mat-subheading-2">Heading h4</div>
+
+  <!-- can also use with h1-h2-h3-h4 tags by wrapping with mat-typography class -->
+
+  <div class="mat-typography">
+    <h1>h1 tag</h1>
+    <h2>h2 tag</h2>
+    <h3>h3 tag</h3>
+    <h4>h4 tag</h4>
+  </div>
+
+  <div class="mat-body-1">Body 1</div>
+  <div class="mat-body-2">Body 2 for bold</div>
+  <div class="mat-caption">caption</div> <br>
+
+  <div class="mat-display-3" style="text-align: center;">Toggle Buttons</div>
+  <div style="margin-left: 3rem;">
+    <mat-button-toggle-group #toggleGroup="matButtonToggleGroup" multiple>
+      <mat-button-toggle value="home">
+        <mat-icon>home</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="mail">
+        <mat-icon>mail</mat-icon>
+      </mat-button-toggle>
+      <mat-button-toggle value="input">
+        <mat-icon>input</mat-icon>
+      </mat-button-toggle>
+    </mat-button-toggle-group>
+    {{toggleGroup.value}}
+
+
+    <div class="mat-display-3" style="text-align: center;">Badges</div>
+
+    <div>
+      <span matBadge="10">Notification</span>
+    </div>
+    <div>
+      <span matBadge="10" matBadgePosition="above before">Notification</span>
+    </div>
+    <div>
+      <span matBadge="10" matBadgePosition="below after">Notification</span>
+    </div>
+    <div>
+      <span matBadge="10" matBadgePosition="below before">Notification</span>
+    </div>
+
+    <div>
+      <span matBadge="10" matBadgeSize="small">Notification</span>
+    </div>
+    <div>
+      <span matBadge="10" matBadgeSize="medium">Notification</span>
+    </div>
+    <div>
+      <span matBadge="10" matBadgeSize="large">Notification</span>
+    </div>
+    <div>
+      <span matBadge="10" matBadgeColor="accent">Notification</span>
+    </div>
+    <div>
+      <!-- with property binding -->
+      <span [matBadge]="size" matBadgeColor="warn">Notification</span>
+    </div>
+    <div>
+      <span matBadge="10" matBadgeSize="medium" matBadgeOverlap="false">Notification</span>
+    </div>
+    <div>
+      <!-- with property binding -->
+      <span [matBadge]="size" matBadgeSize="medium">
+        <mat-icon style="transform: scale(2);">mail</mat-icon>
+      </span>
+    </div>
+    <div>
+      <!-- with property binding -->
+      <span [matBadge]="value" [matBadgeHidden]="value === 0" matBadgeSize="medium">
+        <mat-icon color="accent" style="transform: scale(2);">mail</mat-icon>
+      </span>
+    </div>
+
+  </div>
+
+  <!-- <div class="mat-display-3" style="text-align: center;">Spinner</div>
+  <div>
+    <mat-spinner color="accent"></mat-spinner> <!-- best for data loading
+  </div> -->
+
+  <div class="mat-display-3" style="text-align: center;">Toolbar</div>
+  <mat-toolbar color="accent" class="nav-bar">
+    <div>Company Name or logo</div>
+    <div>
+      <span>
+        <mat-icon>home</mat-icon>Home
+      </span>
+      <span>
+        <mat-icon>edit</mat-icon>Edit
+      </span>
+      <span>About</span>
+    </div>
+  </mat-toolbar>
+  <div class="mat-display-3" style="text-align: center;">Side navbar</div>
+
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" #sidenav [(opened)]="opened" color="accent">
+      Sidenav
+    </mat-sidenav>
+    <mat-sidenav-content>
+      Main
+      <button mat-button (click)="sidenav.open()">Open by template</button>
+      <button mat-button (click)="sidenav.close()">Close by template</button>
+      <button mat-button (click)="sidenav.toggle()">Toggle by template</button>
+      <button mat-button (click)="opened=!opened">Toggle</button>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <div class="mat-display-3" style="text-align: center;">Menu</div>
+
+  <mat-menu #appMenu="matMenu" xPosition="after" yPosition="below">
+    <button mat-menu-item [matMenuTriggerFor]="submenu">item 1</button>
+    <button mat-menu-item>item 2</button>
+    <button mat-menu-item>item 3</button>
+  </mat-menu>
+  <mat-menu #submenu="matMenu">
+    <button mat-menu-item>sub 1</button>
+    <button mat-menu-item>sub 2</button>
+  </mat-menu>
+  <button mat-raised-button color="accent" [matMenuTriggerFor]="appMenu">Menu</button>
+
+  <div class="mat-display-3" style="text-align: center;">Grid</div>
+  <mat-grid-list cols="3" rowHeight="fit" style="height: 200px;" gutterSize=10px>
+    <mat-grid-tile colspan="3">Tile 1</mat-grid-tile>
+    <mat-grid-tile>Tile 2</mat-grid-tile>
+    <mat-grid-tile>Tile 3</mat-grid-tile>
+    <mat-grid-tile>Tile 4</mat-grid-tile>
+    <mat-grid-tile>Tile 5</mat-grid-tile>
+    <mat-grid-tile>Tile 6</mat-grid-tile>
+  </mat-grid-list>
+
+  <div class="mat-display-3" style="text-align: center;">Expansion Panel</div>
+
+  <!-- wrap in one container with mat-accordion -->
+  <mat-accordion>
+    <!-- use multi="true" for multiple panel expansion the other would not closed -->
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Test title 1
+        </mat-panel-title>
+        <mat-panel-description>
+          Test Description 1
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>jksdjkd</p>
+      <mat-action-row>
+        <button mat-button>Enroll</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Test title 2
+        </mat-panel-title>
+        <mat-panel-description>
+          Test Description 2
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>klsd</p>
+      <mat-action-row>
+        <button mat-button>Enroll</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <div class="mat-display-3" style="text-align: center;">Tabs</div>
+
+  <mat-tab-group #tabRef>
+    <mat-tab label="Test 1">Desc 1</mat-tab>
+    <mat-tab label="Test 2">Desc 2</mat-tab>
+    <mat-tab label="Test 3">Desc 3</mat-tab>
+  </mat-tab-group>
+  {{tabRef.selectedIndex}}
+
+  <div class="mat-display-3" style="text-align: center;">Stepper</div>
+  <mat-vertical-stepper linear>
+    <!-- can change to horizontal stepper -->
+    <mat-step label="Shipping Address" completed="false">
+      Shipping Address Details
+    </mat-step>
+    <mat-step label="Billing Address" completed="false">
+      Billing Address Details
+    </mat-step>
+    <mat-step label="Place Order" completed="false">
+      Place Order Details
+    </mat-step>
+  </mat-vertical-stepper>
+  <div class="mat-display-3" style="text-align: center;">Input Field</div>
+
+  <mat-form-field hideRequiredMarker appearance="standard" color="warn">
+    <mat-label>
+      Name
+    </mat-label>
+    <input matInput type="text" required>
+    <mat-hint align="end">Min 5 character</mat-hint>
+  </mat-form-field>
+
+  <div class="mat-display-3" style="text-align: center;">Select Field</div>
+  <mat-form-field>
+    <mat-label>
+      Topic
+    </mat-label>
+    <mat-select>
+      <mat-option value='m'>Male</mat-option> 
+      <mat-option value='f'>Female</mat-option>
+      <mat-option value='lgbtq+'>LGBTQ+</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="mat-display-3" style="text-align: center;">Select Field</div>
+  <mat-checkbox color="primary">Male</mat-checkbox> <br>
+  <mat-checkbox labelPosition="before">Female</mat-checkbox>
+  <div class="mat-display-3" style="text-align: center;">Radio Button</div>
+    <mat-radio-group color="primary">
+      <mat-radio-button value="male">Male</mat-radio-button> <br>
+      <mat-radio-button value="female">Female</mat-radio-button> <br>
+      <mat-radio-button value="lgbtq">LGBTQ+</mat-radio-button> <br>
+    </mat-radio-group>
+
+    <div class="mat-display-3" style="text-align: center;">Date Picker</div>
+    <mat-form-field>
+      <input matInput [matDatepicker]="myDatePicker" [matDatepickerFilter]="dateFilter"> 
+      <!-- dateFilter function from .ts file is used to not select the sat-sun days -->
+      <mat-datepicker-toggle matSuffix [for]="myDatePicker"></mat-datepicker-toggle>
+      <mat-datepicker #myDatePicker></mat-datepicker>
+    </mat-form-field>
+
+    <div class="mat-display-3" style="text-align: center;">Tool tip or button hover information</div>
+    <button mat-raised-button matTooltip="Click me, please" matTooltipPosition="before" matTooltipHideDelay="600">Test</button>
+    <div class="mat-display-3" style="text-align: center;">Snack Bar</div>
+    <button mat-raised-button (click)="openSnackbar('item inserted', 'dismiss')">button with snackbar</button> <br>
+    <div class="mat-display-3" style="text-align: center;">Dialog</div>
+    <button mat-raised-button (click)="openDialog()">Open Dialog</button>
+</div>

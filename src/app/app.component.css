@@ -1,0 +1,19 @@
+div {
+    margin: 3rem;
+}
+.nav-bar {
+    justify-content: space-between;
+}
+span {
+    padding-right: 1rem;
+}
+.container {
+    margin-left: 5%;
+}
+mat-sidenav, mat-sidenav-content {
+    height: 300px;
+    color: red
+}
+mat-grid-tile {
+    background-color: lightblue;
+}
